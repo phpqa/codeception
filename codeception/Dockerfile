@@ -18,6 +18,10 @@ RUN curl https://getcomposer.org/installer -o /tmp/composer-setup.php \
 
 RUN apk add --no-cache tini
 
+# Install pdo_mysql
+
+RUN docker-php-ext-install pdo pdo_mysql
+
 # Install Codeception - https://github.com/codeception/codeception
 
 RUN echo "memory_limit=-1" > $PHP_INI_DIR/conf.d/memory-limit.ini
